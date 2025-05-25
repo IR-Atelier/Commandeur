@@ -162,7 +162,7 @@ public:
 
         const int chunk_size = 4000;
         for (size_t pos = 0; pos < pcm.size(); pos += chunk_size) {
-            size_t remaining = pcm.size() - pos;
+            int remaining = pcm.size() - pos;
             int len = static_cast<int>(min(chunk_size, remaining));
             if (!recognizer.acceptWaveform(&pcm[pos], len)) {
                 cerr << "Vosk recognition error" << endl;
